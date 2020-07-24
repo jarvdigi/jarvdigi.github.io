@@ -26,6 +26,12 @@ h1, h2, h3, h4, h5,
 .text-primary {
   color: #1FAD9F !important; }
 
+.camera-icon {
+  position: absolute;
+  top: 6px;
+  right: -25px;
+}
+
 .probootstrap-aside {
   height: 100vh;
   width: 250px;
