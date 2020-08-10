@@ -274,12 +274,18 @@ h1, h2, h3, h4, h5,
     .probootstrap-main .card-columns {
       -webkit-columns: 2;
       -moz-columns: 2;
-      columns: 2; } }
+      columns: 2;  
+	  -webkit-transform: translateY(20px);
+      -ms-transform: translateY(20px);
+      transform: translateY(20px); } }
   @media screen and (max-width: 576px) {
     .probootstrap-main .card-columns {
       -webkit-columns: 1;
       -moz-columns: 1;
-      columns: 1; } }
+      columns: 1; 
+	  -webkit-transform: translateY(20px);
+      -ms-transform: translateY(20px);
+      transform: translateY(20px); } }
   .probootstrap-main .card-columns .card {
     background: #e6e6e6;
     border: none;
