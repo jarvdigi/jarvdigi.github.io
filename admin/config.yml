@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: jarvdigi/jarvdigi.github.io
+  branch: master # Ensure this matches your default branch (e.g., main or master)
+  
+  # Note: Because this is hosted on GitHub Pages, you will need a lightweight 
+  # OAuth proxy to handle the GitHub login handshake. You can use a free 
+  # service like https://github.com/vveltman/netlify-cms-github-oauth-provider 
+  # to handle this auth step.
+  base_url: https://decap-oauth-proxy-retry.vercel.app
+
+media_folder: "images"
+public_folder: "images"
+
+collections:
+  - name: "portfolio_data"
+    label: "Portfolio Content"
+    editor:
+      preview: false
+    files:
+      - label: "Manage Photo Gallery"
+        name: "gallery"
+        file: "photos.json"
+        description: "Upload and manage all photos that appear on the homepage grid."
+        fields:
+          - label: "Photos List"
+            name: "photos"
+            widget: "list"
+            summary: '{{fields.alt}} - {{fields.category}}'
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string", hint: "A short description of the image for accessibility" }
+              - { label: "Category", name: "category", widget: "select", options: ["All", "Commercial", "Portraits", "Personal"], default: "All" }
+              - { label: "Sort Weight", name: "weight", widget: "number", default: 10, hint: "Lower numbers display first in the grid" }
