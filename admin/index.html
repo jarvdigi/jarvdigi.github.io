@@ -8,5 +8,26 @@
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <script>
+      // Create an observer to watch for new elements being added to the page
+      const observer = new MutationObserver((mutations) => {
+        // Look for any file inputs that Decap CMS renders
+        const fileInputs = document.querySelectorAll('input[type="file"]');
+        
+        fileInputs.forEach(input => {
+          // If the input doesn't already have the multiple attribute, add it
+          if (!input.hasAttribute('multiple')) {
+            input.setAttribute('multiple', 'multiple');
+          }
+        });
+      });
+
+      // Start observing the entire body for changes
+      observer.observe(document.body, { 
+        childList: true, 
+        subtree: true 
+      });
+    </script>
   </body>
 </html>
