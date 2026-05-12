@@ -96,7 +96,21 @@ $(function(){
 		  }
 		);
 	}
-
+	
+fetch('/photos.json')
+  .then(response => response.json())
+  .then(data => {
+    const grid = document.getElementById('photo-grid');
+    // Optional: Sort the data array by a weight/order property here
+    data.photos.forEach(photo => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `<img class="card-img-top probootstrap-animate" src="${photo.image}" alt="${photo.alt}">`;
+      grid.appendChild(card);
+    });
+    // Re-initialize the Waypoints animation and Masonry layout after appending
+    contentWayPoint(); 
+  });
 
 
 });
